@@ -9,7 +9,6 @@ Test.setXPath("MedicalTestName",Tests[Counter].getXPath("Id"));
 Test.setXPath("Required",true);
 }
 
-
 //In a Purchase Request process each request has many products
 //We throw a validation if there are products that are not approved
 if(<exists(Request.Products[Approved = false])>)
@@ -17,8 +16,7 @@ if(<exists(Request.Products[Approved = false])>)
 CHelper.ThrowValidationError("There are products not approved");
 }
 
-
-  //Some comments are registered in an activity. They have to be included
+//Some comments are registered in an activity. They have to be included
 //in a collection of comments as history information
 Comment = <Request.Comment>;
 User = Me.Case.WorkingCredential.UserId;
