@@ -23,3 +23,14 @@ User = Me.Case.WorkingCredential.UserId;
 CommentRecord=Me.newCollectionItem("Request.CommentHistory")
 CommentRecord.setXPath("Comments",Comment);
 CommentRecord.setXPath("User",User);
+
+
+
+//We created two sequences, one for Suggestions and one for other processes
+//We will concatenate a prefix and then set the sequence
+if(Me.Case.ProcessDefinition.Name == "MySelectedProcess"){
+"SUG-"+CHelper.GetNextSeqValueStr("SuggestionsSequence");
+}
+else{
+"Bizagi-"+CHelper.GetNextSeqValueStr("CaseNumber");
+}
